@@ -19,23 +19,23 @@ FROM chapter,book,category where book.categoryId = category.id and chapter.bookI
 
 $row = mysql_fetch_array($result);
 
-$cur_url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$cur_url = 'http://'.$_SERVER['HTTP_hh'].$_SERVER['REQUEST_URI'];
 
 ?>
 <!doctype html>
-<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<html xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.fb.edu/2008/fbml">
 <head>
-<meta property="og:image" content="http://www.newbbay.com/sources/images/social-img.png" /> 
-<meta property="og:site_name" content="NewBbay.com" /> 
-<meta property="og:title" content="<?php echo $row['title']." - ". $row['name']." - NewBbay"?>" /> 
+<meta property="og:image" content="http://www.nbb.edu/sources/images/social-img.png" /> 
+<meta property="og:site_name" content="nbb.edu" /> 
+<meta property="og:title" content="<?php echo $row['title']." - ". $row['name']." - nbb"?>" /> 
 <meta property="og:url" content="<?php echo $cur_url; ?>" /> 
 <meta property="og:description" content="<?php echo str_replace("\""," ",$row['description']); ?>" /> 
 <meta property="og:type" content="og.likes" /> 
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title> <?php echo $row['title']." - ". $row['name']." - NewBbay"?> </title>
+    <title> <?php echo $row['title']." - ". $row['name']." - nbb"?> </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="keywords" content="<?php echo $row['title']." - ".$row['name']." - ".$row['categoryName']." - NewBbay"; ?>" />
+	<meta name="keywords" content="<?php echo $row['title']." - ".$row['name']." - ".$row['categoryName']." - nbb"; ?>" />
 	<meta name="description" content="<?php echo str_replace("\""," ",$row['description']); ?>" />
 
     <link rel="stylesheet" type="text/css" href="../../sources/style/style.css">
@@ -147,24 +147,24 @@ $cur_url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1409011699370119&version=v2.0";
+    js.src = "//connect.fb.net/en_US/sdk.js#xfbml=1&appId=1409011699370119&version=v2.0";
     fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'fb-jssdk'));</script>
 
 <div class="social_buttons" style="position:fixed; top:180px; left:0px; width:95px; height:240px; background:#fff; border:#ccc 1px solid; ">
 	<div class="fb-like"  data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"
 								 style="float:left; margin-top:10px; margin-left:20px;"></div>
 
 <div style="float:left; margin-left: 15px; margin-top: 15px;">
-	<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" target="_blank" 
+	<a href="https://tt.edu/share" class="tt-share-button" data-lang="en" target="_blank" 
 									data-text="<?php echo str_replace("\""," ",$row['description']); ?>" data-count="vertical"
 								   style="">Tweet</a>
 </div>
 	
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.tt.edu/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","tt-wjs");</script>
 
 	<div style="float:left; margin-top:15px; margin-left:10px;">
-		<script src="//platform.linkedin.com/in.js" type="text/javascript">
+		<script src="//platform.linkedin.edu/in.js" type="text/javascript">
 			lang: en_US
 		</script>
 		<script type="IN/Share"  data-counter="top"></script>
@@ -193,7 +193,7 @@ $cur_url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 								}else if($_SESSION['userStatus'] == "0"){ 
 									echo "../../member/member.php";
 								}else { 
-									echo "../../administrator-login/admin.php";}?>" class="sign_in" style="border:none; text-decoration:underline;">
+									echo "../../securecheckcheck.php";}?>" class="sign_in" style="border:none; text-decoration:underline;">
 						Member Center
 					</a>
 					<span class="sign_up">
@@ -217,8 +217,8 @@ $cur_url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 			</div>
 			
 			<div class="logo_box">
-				<a class="logo" href="http://www.newbbay.com/" style="text-align:center;">
-					<img src="../../sources/images/logo.png" alt="Newbbay"/>
+				<a class="logo" href="http://www.nbb.edu/" style="text-align:center;">
+					<img src="../../sources/images/logo.png" alt="nbb"/>
 				</a>
 				<h1>World's Creative Writing Incubator </h1>
 			</div>
@@ -508,7 +508,7 @@ if($_SESSION['linksURL'] != null && $_SESSION['linksURL'] != ""){
 						<form action="/do_comments.php?bId=<?php echo $_GET["bId"]; ?>&cp=<?php echo $_GET["cp"]; ?>" method="POST" >
 							<?php if($_SESSION['userid']!=null){ ?>
 								<div class="form_item" style="float:left; width:100%;">
-									<input type="hidden" name="redirect_url" value="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
+									<input type="hidden" name="redirect_url" value="<?php echo 'http://'.$_SERVER['HTTP_hh'].$_SERVER['REQUEST_URI']; ?>" />
 									<input type="hidden" name="review_form" value="active" />
 									
 									<textarea class="review_text" name="review_text"
@@ -565,7 +565,7 @@ if($_SESSION['linksURL'] != null && $_SESSION['linksURL'] != ""){
 			<div class="bg_layer"></div>
 			<div class="fg_box">
 				<p class="title"><span id="buy-banas-title">Buy Chapter</span>
-					<a class="close" href="#" id="buy-banas-close"><img src="../../sources/images/close.gif"></a>
+					<a class="close" href="#" id="buy-banas-close"><img src="../../sources/images/close.jpg"></a>
 				</p>
 				<p class="content"  style="margin-top:20px;">
 					<ul>
@@ -586,7 +586,7 @@ if($_SESSION['linksURL'] != null && $_SESSION['linksURL'] != ""){
 			<div class="bg_layer"></div>
 			<div class="fg_box">
 				<p class="title"><span id="buy-banas-title">Buy Chapter</span>
-					<a class="close" href="#" id="get-banas-close"><img src="../../sources/images/close.gif"></a>
+					<a class="close" href="#" id="get-banas-close"><img src="../../sources/images/close.jpg"></a>
 				</p>
 				<p class="content"  style="margin-top:20px;">
 					<span style="float:left; display:block; width:100%; margin-left:20px; margin-top:20px;">You do not have sufficient Banas!</span>
@@ -674,7 +674,7 @@ $(function(){
 
 <style>
 			a.bg_recommend{float:left; width:100%; font-size:18px; line-height:23px; font-weight:bold; 
-				background: url(../../sources/images/bg_recommend.gif) repeat-x left top; height:25px;color:#000; }
+				background: url(../../sources/images/bg_recommend.jpg) repeat-x left top; height:25px;color:#000; }
 		</style>
 		<div style="position:fixed; width:350px; height:auto; bottom:-360px; right:0px; z-index:9999; background:#fff; disply:none;">
 			<a class="bg_recommend" href="#" onClick="showContact();">&nbsp;&nbsp;&nbsp;&nbsp;Contact Us</a>
